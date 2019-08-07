@@ -1,5 +1,7 @@
 import Button from './button';
+import Status from './status';
 
 export {
-    Button
+    Button,
+    Status
 };

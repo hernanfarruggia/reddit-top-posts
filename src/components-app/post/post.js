@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from '../../components-ui';
+import { Button, Status } from '../../components-ui';
 
 import './post.css';
 
@@ -12,7 +12,7 @@ class Post extends React.Component {
             <div className="post">
                 <div className="header">
                     <div className="info">{ this.props.created } - { this.props.author }</div>
-                    <div className={ this.getStatusClasses() }></div>
+                    <Status active={ this.props.clicked } />
                 </div>
 
                 <div className="title">
@@ -26,18 +26,6 @@ class Post extends React.Component {
                 </div>
             </div>
         );
-    }
-
-    getStatusClasses () {
-        const classes = ['status'];
-
-        if (this.props.clicked) {
-            classes.push('read');
-        } else {
-            classes.push('unread');
-        }
-
-        return classes.join(' ');
     }
 }
 

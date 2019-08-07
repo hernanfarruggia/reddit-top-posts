@@ -21,20 +21,6 @@
     width: 100%;
 }
 
-.post .header .status {
-    border-radius: 50%;
-    height: 12px;
-    width: 12px;
-}
-
-.post .header .status.unread {
-    background-color: #427eff;
-}
-
-.post .header .status.read {
-    background-color: #9c9c9c;
-}
-
 .post .title {
     align-items: center;
     color: #ffffff;

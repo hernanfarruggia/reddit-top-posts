@@ -1,0 +1,13 @@
+.status {
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+}
+
+.status.unread {
+    background-color: #427eff;
+}
+
+.status.read {
+    background-color: #9c9c9c;
+}

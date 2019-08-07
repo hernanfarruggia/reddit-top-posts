@@ -1,0 +1,8 @@
+.posts-menu {
+    background-color: #3b3b3b;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 600px;
+}

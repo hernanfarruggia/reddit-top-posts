@@ -1,0 +1,30 @@
+.post-detail {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    width: 100%;
+}
+
+.post-detail .title {
+    align-items: center;
+    color: #000000;
+    display: flex;
+    flex-direction: row;
+    font-size: 26px;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.post-detail .title img {
+    margin-right: 10px;
+}
+
+.post-detail .content {
+    color: #000000;
+    font-size: 16px;
+    margin: 40px;
+    width: 100%;
+}

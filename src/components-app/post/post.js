@@ -6,10 +6,16 @@ import './post.css';
 
 class Post extends React.Component {
 
+    handleSelectPost (event) {
+        event.stopPropagation();
+
+        this.props.onClick(this.props.id);
+    }
+
     render () {
 
         return (
-            <div className="post">
+            <div className="post" onClick={ this.handleSelectPost.bind(this) }>
                 <div className="header">
                     <div className="info">{ this.props.created } - { this.props.author }</div>
                     <Status active={ this.props.clicked } />

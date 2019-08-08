@@ -1,4 +1,5 @@
 .post-detail {
+    background-color: #ffffff;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

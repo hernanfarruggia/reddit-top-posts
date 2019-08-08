@@ -33,7 +33,9 @@
 }
 
 .post .title img {
+    height: 40px;
     margin-right: 10px;
+    width: 40px;
 }
 
 .post .footer {

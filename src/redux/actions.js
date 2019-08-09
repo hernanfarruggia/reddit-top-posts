@@ -1,3 +1,4 @@
+export const DISMISS_ALL = 'DISMISS_ALL';
 export const DISMISS_POST = 'DISMISS_POST';
 export const GET_POSTS = 'GET_POSTS';
 export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS';
@@ -60,6 +61,12 @@ export function selectPost (id) {
     return {
         type: SELECT_POST,
         id
+    };
+}
+
+export function dismissAll () {
+    return {
+        type: DISMISS_ALL
     };
 }
 

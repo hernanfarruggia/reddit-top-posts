@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.post .header {
+.post-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -21,7 +21,7 @@
     width: 100%;
 }
 
-.post .title {
+.post-header-title {
     align-items: center;
     color: #ffffff;
     display: flex;
@@ -32,13 +32,13 @@
     width: 100%;
 }
 
-.post .title img {
+.post-header-title img {
     height: 40px;
     margin-right: 10px;
     width: 40px;
 }
 
-.post .footer {
+.post-footer {
     align-items: center;
     display: flex;
     flex-direction: row;

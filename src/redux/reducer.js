@@ -1,4 +1,5 @@
 import {
+    DISMISS_ALL,
     DISMISS_POST,
     GET_POSTS_SUCCESS,
     GET_POSTS_FAILURE,
@@ -8,7 +9,7 @@ import {
 
 const initialState = {
     error: false,
-    loading: true,
+    loading: false,
     posts: [],
     selectedPost: null,
 };
@@ -16,6 +17,9 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
+
+        case DISMISS_ALL:
+            return initialState;
 
         case DISMISS_POST:
             return {

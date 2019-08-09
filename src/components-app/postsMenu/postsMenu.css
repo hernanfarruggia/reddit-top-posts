@@ -8,8 +8,23 @@
     width: 600px;
 }
 
-.loading {
+.posts-menu-loading {
     color: #ffffff;
     font-size: 16px;
     margin-top: 20px;
+}
+
+.posts-menu-header {
+    align-items: center;
+    border-bottom: 5px solid #5c5c5c;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.posts-menu-header-title {
+    color: #ffffff;
+    font-size: 24px;
 }

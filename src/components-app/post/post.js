@@ -5,43 +5,40 @@ import { Button, Status } from '../../components-ui';
 
 import './post.css';
 
-class Post extends React.Component {
+const Post = (props) => {
 
-    handleSelectPost (event) {
-        this.props.selectPost(this.props.id);
+    const handleSelectPost = event => {
+        props.selectPost(props.id);
     }
 
-    handleDismissPost (event) {
+    const handleDismissPost = event => {
         event.stopPropagation();
 
-        this.props.dismissPost(this.props.id);
+        props.dismissPost(props.id);
     }
 
-    getDate () {
-        return moment.unix(this.props.created).fromNow();
+    const getDate = () => {
+        return moment.unix(props.created).fromNow();
     }
 
-    render () {
-
-        return (
-            <div className="post" onClick={ this.handleSelectPost.bind(this) }>
-                <div className="post-header">
-                    <div className="info">{ this.getDate() } - { this.props.author }</div>
-                    <Status active={ this.props.clicked } />
-                </div>
-
-                <div className="post-header-title">
-                    <img src={ this.props.thumbnail } alt={ this.props.title } />
-                    <span>{ this.props.title }</span>
-                </div>
-
-                <div className="post-footer">
-                    <div className="comments">{ this.props.comments } comments</div>
-                    <Button title="Dismiss" onClick={ this.handleDismissPost.bind(this) } />
-                </div>
+    return (
+        <div className="post" onClick={ handleSelectPost }>
+            <div className="post-header">
+                <span>{ getDate() } - { props.author }</span>
+                <Status active={ props.clicked } />
             </div>
-        );
-    }
+
+            <div className="post-header-title">
+                <img src={ props.thumbnail } alt={ props.title } />
+                <span>{ props.title }</span>
+            </div>
+
+            <div className="post-footer">
+                <span>{ props.comments } comments</span>
+                <Button title="Dismiss" onClick={ handleDismissPost } />
+            </div>
+        </div>
+    );
 }
 
 export default Post;

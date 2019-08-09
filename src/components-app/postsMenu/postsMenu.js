@@ -8,7 +8,7 @@ import {
 } from '../../redux/actions';
 
 import Post from '../post';
-import { Button } from '../../components-ui';
+import { Button, Loading } from '../../components-ui';
 
 import './postsMenu.css';
 
@@ -58,11 +58,7 @@ class PostsMenu extends React.Component {
 
     renderLoading () {
         if (this.props.loading) {
-            return (
-                <div className="posts-menu-loading">
-                    Loading...
-                </div>
-            );
+            return <Loading />;
         }
 
         return null;

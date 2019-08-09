@@ -9,16 +9,16 @@ class PostDetail extends React.Component {
 
         return (
             <div className="post-detail">
-                { this.renderPostDetails() }
+                { this.renderDetails() }
+
+                { this.renderEmpty() }
             </div>
         );
     }
 
-    renderPostDetails () {
-        let Component;
-
+    renderDetails () {
         if (this.props.selectedPost) {
-            Component = (
+            return (
                 <div>
                     <div className="title">
                         { this.props.selectedPost.author }
@@ -30,15 +30,21 @@ class PostDetail extends React.Component {
                 </div>
             );
 
-        } else {
-            Component = (
-                <div className="not_found">
+        }
+        
+        return null;
+    }
+
+    renderEmpty () {
+        if (!this.props.selectedPost) {
+            return (
+                <span>
                     Please select a post to see details!
-                </div>
+                </span>
             );
         }
 
-        return Component;
+        return null;
     }
 }
 

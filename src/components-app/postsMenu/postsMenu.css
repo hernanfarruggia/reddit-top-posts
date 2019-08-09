@@ -8,12 +8,6 @@
     width: 600px;
 }
 
-.posts-menu-loading {
-    color: #ffffff;
-    font-size: 16px;
-    margin-top: 20px;
-}
-
 .posts-menu-header {
     align-items: center;
     border-bottom: 5px solid #5c5c5c;

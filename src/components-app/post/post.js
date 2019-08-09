@@ -7,9 +7,13 @@ import './post.css';
 class Post extends React.Component {
 
     handleSelectPost (event) {
+        this.props.selectPost(this.props.id);
+    }
+
+    handleDismissPost (event) {
         event.stopPropagation();
 
-        this.props.onClick(this.props.id);
+        this.props.dismissPost(this.props.id);
     }
 
     render () {
@@ -28,7 +32,7 @@ class Post extends React.Component {
 
                 <div className="footer">
                     <div className="comments">{ this.props.comments } comments</div>
-                    <Button title="Dismiss" />
+                    <Button title="Dismiss" onClick={ this.handleDismissPost.bind(this) } />
                 </div>
             </div>
         );

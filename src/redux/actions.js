@@ -1,3 +1,4 @@
+export const DISMISS_POST = 'DISMISS_POST';
 export const GET_POSTS = 'GET_POSTS';
 export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS';
 export const GET_POSTS_FAILURE = 'GET_POSTS_FAILURE';
@@ -57,6 +58,13 @@ export function getPosts () {
 export function selectPost (id) {
     return {
         type: SELECT_POST,
+        id
+    };
+}
+
+export function dismissPost (id) {
+    return {
+        type: DISMISS_POST,
         id
     };
 }

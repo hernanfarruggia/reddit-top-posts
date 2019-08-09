@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getPosts, selectPost } from '../../redux/actions';
+import {
+    dismissPost,
+    getPosts,
+    selectPost
+} from '../../redux/actions';
 
 import Post from '../post';
 
@@ -26,10 +30,20 @@ class PostsMenu extends React.Component {
     renderPosts () {
         let Component;
 
-        if (this.props.loading) {
+        if (this.props.error) {
             Component = (
-                <div className="loading">Loading...</div>
+                <div className="error">
+                    There was an error trying to fetch posts... Please refresh the page.
+                </div>
             );
+
+        } else if (this.props.loading) {
+            Component = (
+                <div className="loading">
+                    Loading...
+                </div>
+            );
+
         } else {
             Component = this.props.posts.map(post => {
                 return <Post
@@ -37,12 +51,13 @@ class PostsMenu extends React.Component {
                     created={ post.created }
                     clicked={ post.clicked }
                     comments={ post.comments }
+                    dismissPost={ this.props.dismissPost }
                     id={ post.id }
                     key={ post.id }
-                    onClick={ this.props.selectPost }
+                    selectPost={ this.props.selectPost }
                     thumbnail={ post.thumbnail }
                     title={ post.title } />
-            })
+            });
         }
 
         return Component;
@@ -55,8 +70,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        dismissPost: id => dispatch(dismissPost(id)),
         getPosts: () => dispatch(getPosts()),
-        selectPost: (id) => dispatch(selectPost(id))
+        selectPost: id => dispatch(selectPost(id))
     }
 }
 

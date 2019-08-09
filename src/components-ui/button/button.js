@@ -5,7 +5,9 @@ import './button.css';
 const Button = (props) => {
 
     return (
-        <button>{ props.title }</button>
+        <button onClick={ props.onClick }>
+            { props.title }
+        </button>
     )
 } 
 

@@ -48,7 +48,7 @@ class PostsMenu extends React.Component {
             Component = this.props.posts.map(post => {
                 return <Post
                     author={ post.author }
-                    created={ post.created }
+                    created={ post.created_utc }
                     clicked={ post.clicked }
                     comments={ post.comments }
                     dismissPost={ this.props.dismissPost }

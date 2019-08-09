@@ -35,13 +35,14 @@ export function getPosts () {
             .then(response => response.json())
             .then(response => {
                 const posts = response.data.children.map(item => {
-                    const { author, created, clicked, id, num_comments, thumbnail, title } = item.data;
+                    const { author, created_utc, clicked, id, num_comments, thumbnail, title, url } = item.data;
 
                     return {
                         author,
-                        created,
+                        created_utc,
                         clicked,
                         id,
+                        image: url,
                         comments: num_comments,
                         thumbnail,
                         title

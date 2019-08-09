@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import { Button, Status } from '../../components-ui';
 
@@ -16,12 +17,16 @@ class Post extends React.Component {
         this.props.dismissPost(this.props.id);
     }
 
+    getDate () {
+        return moment.unix(this.props.created).fromNow();
+    }
+
     render () {
 
         return (
             <div className="post" onClick={ this.handleSelectPost.bind(this) }>
                 <div className="header">
-                    <div className="info">{ this.props.created } - { this.props.author }</div>
+                    <div className="info">{ this.getDate() } - { this.props.author }</div>
                     <Status active={ this.props.clicked } />
                 </div>
 

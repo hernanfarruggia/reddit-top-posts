@@ -1,8 +1,8 @@
 import {
     DISMISS_ALL,
     DISMISS_POST,
-    GET_POSTS_SUCCESS,
     GET_POSTS_FAILURE,
+    GET_POSTS_SUCCESS,
     LOADING,
     SELECT_POST
 } from './actions';
@@ -27,20 +27,20 @@ const reducer = (state = initialState, action) => {
                 selectedPost: state.selectedPost && state.selectedPost.id === action.id ? null : state.selectedPost
             };
         
-        case GET_POSTS_SUCCESS:
-            return {
-                error: false,
-                loading: false,
-                posts: action.posts,
-                selectedPost: null
-            };
-        
         case GET_POSTS_FAILURE:
             return {
                 error: action.err,
                 loading: false,
                 posts: [],
                 selectedPost: null,
+            };
+        
+        case GET_POSTS_SUCCESS:
+            return {
+                error: false,
+                loading: false,
+                posts: action.posts,
+                selectedPost: null
             };
 
         case LOADING:

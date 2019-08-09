@@ -2,6 +2,7 @@
     align-items: center;
     background-color: #3b3b3b;
     box-sizing: border-box;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -19,6 +20,5 @@
 }
 
 .posts-menu-header-title {
-    color: #ffffff;
     font-size: 24px;
 }

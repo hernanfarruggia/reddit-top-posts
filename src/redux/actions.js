@@ -6,23 +6,16 @@ export const GET_POSTS_FAILURE = 'GET_POSTS_FAILURE';
 export const LOADING = 'LOADING';
 export const SELECT_POST = 'SELECT_POST';
 
-export function loading () {
+export function dismissAll () {
     return {
-        type: LOADING
+        type: DISMISS_ALL
     };
 }
 
-export function getPostsSuccess (posts) {
+export function dismissPost (id) {
     return {
-        type: GET_POSTS_SUCCESS,
-        posts
-    }
-}
-
-export function getPostsFailure (err) {
-    return {
-        type: GET_POSTS_FAILURE,
-        err
+        type: DISMISS_POST,
+        id
     };
 }
 
@@ -36,15 +29,15 @@ export function getPosts () {
             .then(response => response.json())
             .then(response => {
                 const posts = response.data.children.map(item => {
-                    const { author, created_utc, clicked, id, num_comments, thumbnail, title, url } = item.data;
+                    const { author, clicked, created_utc, id, num_comments, thumbnail, title, url } = item.data;
 
                     return {
                         author,
-                        created_utc,
                         clicked,
+                        comments: num_comments,
+                        created_utc,
                         id,
                         image: url,
-                        comments: num_comments,
                         thumbnail,
                         title
                     };
@@ -57,22 +50,29 @@ export function getPosts () {
 
 }
 
+export function getPostsFailure (err) {
+    return {
+        type: GET_POSTS_FAILURE,
+        err
+    };
+}
+
+export function getPostsSuccess (posts) {
+    return {
+        type: GET_POSTS_SUCCESS,
+        posts
+    }
+}
+
+export function loading () {
+    return {
+        type: LOADING
+    };
+}
+
 export function selectPost (id) {
     return {
         type: SELECT_POST,
-        id
-    };
-}
-
-export function dismissAll () {
-    return {
-        type: DISMISS_ALL
-    };
-}
-
-export function dismissPost (id) {
-    return {
-        type: DISMISS_POST,
         id
     };
 }

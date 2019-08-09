@@ -31,7 +31,7 @@ class PostsMenu extends React.Component {
                     <span className="posts-menu-header-title">
                         Reddit Top Posts
                     </span>
-                    { this.renderDismissAllBtn() }
+                    { this.renderDismissAll() }
                 </div>
                 
                 { this.renderLoading() }
@@ -40,11 +40,13 @@ class PostsMenu extends React.Component {
 
                 { this.renderPosts() }
 
+                { this.renderEmpty() }
+
             </div>
         );
     }
 
-    renderDismissAllBtn () {
+    renderDismissAll () {
         if (this.props.posts && this.props.posts.length > 0) {
             return (
                 <Button
@@ -91,6 +93,18 @@ class PostsMenu extends React.Component {
                     thumbnail={ post.thumbnail }
                     title={ post.title } />
             });
+        }
+
+        return null;
+    }
+
+    renderEmpty () {
+        if ((!this.props.posts || this.props.posts.length === 0) && !this.props.loading && !this.props.error) {
+            return (
+                <div>
+                    Please refresh the page to load posts!
+                </div>
+            );
         }
 
         return null;
